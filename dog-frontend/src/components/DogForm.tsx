@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // Bruker useNavigate i stedet for useHistory
+import { useParams, useNavigate } from 'react-router-dom'; 
 import { createDog, updateDog } from '../services/api';
 
 const DogForm = () => {
-  const { id } = useParams<{ id?: string }>();  // Bruker useParams for å hente ID fra URL
-  const navigate = useNavigate();  // Bruker useNavigate for navigasjon
+  const { id } = useParams<{ id?: string }>();  
+  const navigate = useNavigate();  
 
   const [name, setName] = useState('');
   const [breed, setBreed] = useState('');
@@ -14,8 +14,7 @@ const DogForm = () => {
 
   useEffect(() => {
     if (id) {
-      // Hent hunden basert på ID for oppdatering
-      // fetchDogById(id) - Implementer denne funksjonen for å hente hunden
+     
     }
   }, [id]);
 
@@ -26,11 +25,11 @@ const DogForm = () => {
 
     try {
       if (id) {
-        await updateDog(id, dogData);  // Oppdater hunden hvis ID finnes
+        await updateDog(id, dogData);  
       } else {
-        await createDog(dogData);  // Opprett en ny hund hvis ID ikke finnes
+        await createDog(dogData);  
       }
-      navigate('/dogs');  // Naviger til listen etter opprettelse/oppdatering
+      navigate('/dogs');  
     } catch (error) {
       console.error('Error creating/updating dog:', error);
     }

@@ -24,7 +24,7 @@ const Register = () => {
       }
 
       alert("Bruker registrert! Logg inn for å fortsette.");
-      navigate("/login"); // Send brukeren til innloggingssiden
+      navigate("/login"); // Send user to login
     } catch (err: any) {
       setError(err.message);
     }

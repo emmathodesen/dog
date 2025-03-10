@@ -14,23 +14,23 @@ const Navbar = () => {
         <li style={styles.navItem}>
           <Link to="/create-dog" style={styles.navLink}>Add Dog</Link>
         </li>
-        {/* Legg til Update Dog link */}
+        {/* Add Update Dog link */}
         <li style={styles.navItem}>
           <Link to="/dog/:id" style={styles.navLink}>Update Dog</Link> 
-          {/* Merk at '/dog/:id' er en dynamisk rute, og du må bruke riktig id når du navigerer */}
+          {/*  */}
         </li>
         <li style={styles.navItem}>
           <Link to="/login" style={styles.navLink}>Login</Link>
         </li>
         <li style={styles.navItem}>
-          <Link to="/register" style={styles.navLink}>Register</Link> {/* Nytt element */}
+          <Link to="/register" style={styles.navLink}>Register</Link> {/* New element */}
         </li>
       </ul>
     </nav>
   );
 };
 
-// Enkle stiler for navigasjonen
+
 const styles = {
   navList: {
     display: "flex",

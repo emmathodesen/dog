@@ -18,14 +18,14 @@ const Navbar = () => {
           <Link to="/login" style={styles.navLink}>Login</Link>
         </li>
         <li style={styles.navItem}>
-          <Link to="/register" style={styles.navLink}>Register</Link> {/* Nytt element */}
+          <Link to="/register" style={styles.navLink}>Register</Link> {/* New element */}
         </li>
       </ul>
     </nav>
   );
 };
 
-// Enkle stiler for navigasjonen
+
 const styles = {
   navList: {
     display: "flex",
