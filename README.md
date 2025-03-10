@@ -37,7 +37,8 @@ git clone https://github.com/yourusername/dog-api.git
 INSTALL DEPENDENCIES:
 cd dog-api
 npm install
-Set up your environment variables in a .env file. Example:
+Set up your environment variables in a .env file. 
+Example:
 MONGO_URI=mongodb://localhost:27017/dog_api
 TOKEN_SECRET=your_secret_key
 
