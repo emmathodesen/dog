@@ -1,9 +1,9 @@
 const apiUrl = 'http://localhost:4000/api'; // API-endpoint
 
-// Henter token fra localStorage
+// gets token from localStorage
 const getAuthToken = () => localStorage.getItem('auth-token');
 
-// Hjelpefunksjon for å håndtere API-kall
+// handles API-kall
 const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
   const token = getAuthToken();
   if (!token) {
@@ -26,31 +26,31 @@ const fetchWithAuth = async (url: string, options: RequestInit = {}) => {
   return await response.json();
 };
 
-// Hente alle hunder
+// gets all dogs
 export const getDogs = () => fetchWithAuth(`${apiUrl}/dogs`);
 
-// Hente en spesifikk hund basert på ID
+// get dog buy id
 export const getDogById = (id: string) => fetchWithAuth(`${apiUrl}/dogs/${id}`);
 
-// Opprette en ny hund
+// make a new dog
 export const createDog = (dogData: any) =>
   fetchWithAuth(`${apiUrl}/dogs`, {
     method: 'POST',
     body: JSON.stringify(dogData),
   });
 
-// Oppdatere en hund basert på ID
+// Update dog buy id
 export const updateDog = (id: string, dogData: any) =>
   fetchWithAuth(`${apiUrl}/dogs/${id}`, {
     method: 'PUT',
     body: JSON.stringify(dogData),
   });
 
-// Slette en hund basert på ID
+// delete dog buy id
 export const deleteDog = (id: string) =>
   fetchWithAuth(`${apiUrl}/dogs/${id}`, { method: 'DELETE' });
 
-// Logge inn og motta token
+// Log in and receive token
 export const loginUser = async (email: string, password: string) => {
   const response = await fetch(`${apiUrl}/login`, {
     method: 'POST',
@@ -70,7 +70,7 @@ export const loginUser = async (email: string, password: string) => {
   return data;
 };
 
-// Registrere ny bruker
+// Register new user
 export const registerUser = async (email: string, password: string) => {
   const response = await fetch(`${apiUrl}/register`, {
     method: 'POST',
@@ -85,8 +85,8 @@ export const registerUser = async (email: string, password: string) => {
   return await response.json();
 };
 
-// Hente brukerdata
+// Fetch user data
 export const getUserData = () => fetchWithAuth(`${apiUrl}/me`);
 
-// Sjekk om brukeren er innlogget
+// check if user are logged in
 export const isAuthenticated = () => !!getAuthToken();
