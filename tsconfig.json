@@ -18,10 +18,12 @@
     "noImplicitAny": true,
     "skipLibCheck": true
   },
-  "include": ["./src", "./src/swagger-output.json"],
+  "include": [
+    "src/**/*"  // Sørg for at alle TypeScript-filer fra src er inkludert
+  ],
   "exclude": [
-    "./node_modules/", 
-    "./tests/", 
-    "./dist/"
+    "node_modules",
+    "dist"
   ]
 }
+

@@ -6,7 +6,8 @@ import {
     updateDogById, 
     deleteDogById 
 } from './controllers/dogController';  
-import { loginUser, registerUser, verifyToken } from './controllers/authController';
+import { registerUser, loginUser, verifyToken } from "./controllers/authController";
+
 
 const router: Router = Router();
 
