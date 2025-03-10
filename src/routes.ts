@@ -1,10 +1,11 @@
 import { Router, Request, Response } from 'express';
 import { 
-    createProduct, 
-    getAllProducts, 
-    getProductById,
-    updateProductById,
-    deleteProductById} from './controllers/productController';
+    createDog,  
+    getAllDogs, 
+    getDogById, 
+    updateDogById, 
+    deleteDogById 
+} from './controllers/dogController';  
 import { loginUser, registerUser, verifyToken } from './controllers/authController';
 
 const router: Router = Router();
@@ -24,9 +25,10 @@ const router: Router = Router();
 
 // GET, POST, PUT, DELETE (CRUD)
 
+// Endret fra "products" til "dogs"
 router.get('/', (req: Request, res: Response) => {
     // connect
-    res.status(200).send('Welcome to the MENS API');
+    res.status(200).send('Welcome to the Dog API');  
     // diconnect
 });
 
@@ -59,23 +61,22 @@ router.get('/', (req: Request, res: Response) => {
  *                   type: string
  */
 
-
 router.post('/user/register', registerUser);
 router.post('/user/login', loginUser);
 
 // CREATE
-router.post('/products', verifyToken, createProduct);
+router.post('/dogs', createDog);  
 
 // GETS
-router.get('/products', getAllProducts);
+router.get('/dogs', getAllDogs);  
 /**
  * @swagger
- * /products/{id}:
+ * /dogs/{id}:  
  *   get:
  *     tags:
- *       - Product Routes
- *     summary: Specific Product
- *     description: Retrieves a specific Product based on it id.
+ *       - Dog Routes // 
+ *     summary: Specific Dog
+ *     description: Retrieves a specific Dog based on it id.
  *     parameters:
  *       - in: path
  *         name: id
@@ -85,24 +86,24 @@ router.get('/products', getAllProducts);
  *           type: string
  *     responses:
  *       200:
- *         description: A Product in the format of a JSON object.
+ *         description: A Dog in the format of a JSON object.
  *         content:
  *           application/json:
  *             schema:
  *               type: array
  *               items:
- *                 $ref: "#/components/schemas/Product"
+ *                 $ref: "#/components/schemas/Dog"  
  */
-router.get('/products/:id', getProductById); 
+router.get('/dogs/:id', getDogById); 
 
 /**
  * @swagger
- * /products/{id}:
+ * /dogs/{id}:  
  *   put:
  *     tags:
- *       - Product Routes
- *     summary: Updates a specific Product
- *     description: Updates a specific Product based on it id
+ *       - Dog Routes // 
+ *     summary: Updates a specific Dog
+ *     description: Updates a specific Dog based on it id
  *     security:
  *       - ApiKeyAuth: []
  *     parameters:
@@ -117,27 +118,29 @@ router.get('/products/:id', getProductById);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: "#/components/schemas/Product"
+ *             $ref: "#/components/schemas/Dog"  
  *
  *     responses:
  *       201:
- *         description: Product updated succesfully
+ *         description: Dog updated succesfully
  *         content:
  *           application/json:
  *             schema:
- *               $ref: "#/components/schemas/Product"
+ *               $ref: "#/components/schemas/Dog" 
  */
 
 // UPDATE + DELETE
-router.put('/products/:id', verifyToken, updateProductById); 
+// Endret fra "products" til "dogs"
+router.put('/dogs/:id', updateDogById);  
+
 /**
  * @swagger
- * /products/{id}:
+ * /dogs/{id}:  
  *   delete:
  *     tags:
- *       - Product Routes
- *     summary: Deletes a specific Product
- *     description: Deletes a specific Product based on it id
+ *       - Dog Routes  
+ *     summary: Deletes a specific Dog
+ *     description: Deletes a specific Dog based on it id
  *     security:
  *       - ApiKeyAuth: []
  *     parameters:
@@ -150,12 +153,12 @@ router.put('/products/:id', verifyToken, updateProductById);
  *
  *     responses:
  *       201:
- *         description: Product deleted succesfully
+ *         description: Dog deleted succesfully
  *         content:
  *           application/json:
  *             schema:
- *               $ref: "#/components/schemas/Product"
+ *               $ref: "#/components/schemas/Dog"  
  */ 
-router.delete ('/products/:id', verifyToken, deleteProductById);  
+router.delete('/dogs/:id', verifyToken, deleteDogById); 
  
-export default router;   
+export default router;
