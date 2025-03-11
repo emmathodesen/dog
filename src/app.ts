@@ -25,7 +25,7 @@ function setupCors() {
         methods: 'GET, PUT, POST, DELETE',
 
         // Allow headers
-        allowedHeaders: ['auth-token', 'Origin', 'X-Requested-With', 'Content-Type', 'Accept'], // Corrected typo 'X-Requested-Width' to 'X-Requested-With'
+        allowedHeaders: ['auth-token', 'Origin', 'X-Requested-With', 'Content-Type', 'Accept'], 
 
         // Allow credentials
         credentials: true

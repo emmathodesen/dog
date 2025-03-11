@@ -30,21 +30,21 @@ import { connect, disconnect } from '../repository/database';
 export async function createDog(req: Request, res: Response): Promise<void> {
     const data = req.body;
 
-    console.log('Received dog data:', data);  // Logging for å se dataene som sendes til serveren
+    console.log('Received dog data:', data); 
 
     try {
         await connect();
 
-        // Lag hunden i databasen
+        // Dog to db
         const dog = new dogModel(data);
         const result = await dog.save();
 
-        console.log('Dog created:', result);  // Logging etter lagring for å verifisere at hunden ble opprettet
+        console.log('Dog created:', result);  
 
-        // Svar med den opprettede hunden
+    
         res.status(201).send(result);
     } catch (err) {
-        console.error("Error creating dog. Error:", err);  // Logging for feil
+        console.error("Error creating dog. Error:", err);  
         res.status(500).send("Error creating dog. Error: " + err);
     } finally {
         await disconnect();
@@ -73,10 +73,10 @@ export async function getAllDogs(req: Request, res: Response): Promise<void> {
     try {
         await connect();
 
-        // Finn alle hunder i databasen
+        // Get all dogs in db
         const result = await dogModel.find({});
 
-        // Send listen av hunder tilbake til klienten
+        // return list of dogs
         res.status(200).send(result);
     } catch (err) {
         res.status(500).send("Error retrieving dogs. Error: " + err);
@@ -116,7 +116,7 @@ export async function getDogById(req: Request, res: Response): Promise<void> {
 
         const id = req.params.id;
 
-        // Finn en spesifikk hund basert på ID
+        // Get dog by id
         const result = await dogModel.findById(id);
 
         if (!result) {
@@ -167,7 +167,7 @@ export async function updateDogById(req: Request, res: Response): Promise<void> 
     try {
         await connect();
 
-        // Oppdater hunden basert på ID
+        // make dog by ID
         const result = await dogModel.findByIdAndUpdate(id, req.body, { new: true });
 
         if (!result) {
@@ -209,7 +209,7 @@ export async function deleteDogById(req: Request, res: Response): Promise<void> 
     try {
         await connect();
 
-        // Slett hunden basert på ID
+        // delete dog by ID
         const result = await dogModel.findByIdAndDelete(id);
 
         if (!result) {

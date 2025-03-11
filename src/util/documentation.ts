@@ -21,10 +21,7 @@ export function setupDocs(app: Application) {
         url: 'http://localhost:4000/api/',
         description: 'Development server',
       },
-      {
-        url: 'https://your-app-url.com/api/',
-        description: 'Production server',
-      },
+     
     ],
     tags: [
       {
@@ -79,7 +76,7 @@ export function setupDocs(app: Application) {
   const options = {
     swaggerDefinition,
     // Path to the files containing OpenAPI definitions
-    apis: ['./src/routes/*.ts', './src/controllers/*.ts'],  // Sørg for at Swagger kan finne de relevante filene med @swagger kommentarer
+    apis: ['./src/routes/*.ts', './src/controllers/*.ts'],  
   };
 
   // Swagger spec

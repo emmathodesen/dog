@@ -26,11 +26,10 @@ const router: Router = Router();
 
 // GET, POST, PUT, DELETE (CRUD)
 
-// Endret fra "products" til "dogs"
 router.get('/', (req: Request, res: Response) => {
-    // connect
+    
     res.status(200).send('Welcome to the Dog API');  
-    // diconnect
+    
 });
 
 // AUTH
@@ -131,7 +130,6 @@ router.get('/dogs/:id', getDogById);
  */
 
 // UPDATE + DELETE
-// Endret fra "products" til "dogs"
 router.put('/dogs/:id', updateDogById);  
 
 /**
