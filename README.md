@@ -31,7 +31,7 @@ MongoDB: You should have MongoDB set up or use a cloud service like MongoDB Atla
 
 INSTALLATION:
 Clone the repository:
-git clone https://github.com/yourusername/dog-api.git
+git clone https://github.com/emmathodesen/dog-api.git
 
 
 INSTALL DEPENDENCIES:
